@@ -33,23 +33,22 @@ class TicketingController extends Controller {
 
     public function update(Request $request) {
         $data = $request->status;
-        $kode = $request->tickId;
+        // $kode = $request->tickId;
         
-        dd(Input::only('tickId'));
+        // dd(Input::only('tickId'));
 
         $dataArr = explode(".",$data);
-        dd($kode, $dataArr);
 
         $jum = DB::table('penonton')
             ->select('jumlah_hadir')
-            ->where('kode',$kode)
+            ->where('kode',$dataArr[1])
             ->get();
         
         
         $total = $jum[0]->jumlah_hadir + $dataArr[0];
 
         DB::table('penonton')
-            ->where('kode',$kode)
+            ->where('kode',$dataArr[1])
             ->update(['jumlah_hadir' => $total]);
 
             $data = DB::table('bukti')

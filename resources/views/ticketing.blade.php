@@ -73,7 +73,7 @@
                             <td>{{$d->nomor_hp}}</td>
                             <td>{{$d->jenis_tiket}}</td>
                                 <td>
-                                    <form id = "testing" method = "post" action = "/perbarui">
+                                    <form id = "{{$d->kode}}" method = "post" action = "/perbarui">
                                     @csrf
                                         <!-- <select class="form-control" method="post" name = "status"> -->
                                         <select class="form-control form-control-sm" name = "status">
@@ -100,7 +100,7 @@
                                 </td>
                             <td>
                                 <input type="hidden" form = 'testing' id="tickId" name="tickId" value = "<?php echo $d->kode; ?>" />
-                                <input form = "testing" id = "jumlah-penonton-hadir" type="submit"  class="btn btn-sm btn-primary" style="background-color:#314455;color:white;" name = 'btn' value = "Submit"/>
+                                <input form = "{{$d->kode}}" id = "jumlah-penonton-hadir" type="submit"  class="btn btn-sm btn-primary" style="background-color:#314455;color:white;" name = 'btn' value = "Submit"/>
                             </td>
                         </tr>
                         @endforeach
